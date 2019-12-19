@@ -1,6 +1,6 @@
 const db = require('../data/db-config')
 
-function findBy(filter) {
+function login(filter) {
     return db('users')
         .where(filter);
 }
@@ -26,7 +26,7 @@ function register(user) {
 
 
 module.exports = {
-    findBy,
+    login,
     findByID,
     register
 }
