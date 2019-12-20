@@ -14,14 +14,6 @@ function findByID(id) {
 function register(user) {
     return db('users')
         .insert(user, ['*'])
-        .then(res => {
-            return db('users')
-                .where({ id: res.id })
-                .first()
-                .then(newU => {
-                    return newU
-                })
-        })
 }
 
 

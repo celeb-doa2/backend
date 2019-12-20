@@ -25,9 +25,9 @@ router.post('/', async (req, res) => {
 
     try {
         const addedCeleb = await CelebCalls.addCeleb(newCeleb)
-        res.status(201).json({ Message: "New Celebrity Added", addCeleb })
-    } catch{
-        res.status(500).json({ Message: "Celebrity could not be added" })
+        res.status(201).json({ Message: "New Celebrity Added", addedCeleb })
+    } catch (err) {
+        res.status(500).json({ Message: "Celebrity could not be added", err })
     }
 })
 

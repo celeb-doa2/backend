@@ -4,16 +4,19 @@ function getCeleb() {
     return db('celebs')
         .then(res => {
             let calcID = Math.random() * (res.length - 0)
-            console.log(calcID)
+            let roundID = Math.round(calcID)
 
             return db('celebs')
-                .where({ id: calcID }
-                    .first()
-                    .then(cel => {
-                        return cel
-                    })
-
-                )
+                .where({ id: roundID })
+                .first()
+                .then(cel => {
+                    if (cel.death > 0) {
+                        cel.dead = true
+                    } else if (cel.death === 0) {
+                        cel.dead = false
+                    }
+                    return cel
+                })
         })
 
 }
@@ -28,9 +31,6 @@ function allCelebs() {
 function addCeleb(newCeleb) {
     return db('celebs')
         .insert(newCeleb, ['*'])
-        .then(res => {
-            return res
-        })
 }
 
 module.exports = {
