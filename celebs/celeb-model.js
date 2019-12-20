@@ -4,6 +4,7 @@ function getCeleb() {
     return db('celebs')
         .then(res => {
             let calcID = Math.random() * (res.length - 0)
+            console.log(calcID)
 
             return db('celebs')
                 .where({ id: calcID }
@@ -17,6 +18,13 @@ function getCeleb() {
 
 }
 
+function allCelebs() {
+    return db('celebs')
+        .then(res => {
+            return res
+        })
+}
+
 function addCeleb(newCeleb) {
     return db('celebs')
         .insert(newCeleb, ['*'])
@@ -27,5 +35,6 @@ function addCeleb(newCeleb) {
 
 module.exports = {
     getCeleb,
-    addCeleb
+    addCeleb,
+    allCelebs
 }
