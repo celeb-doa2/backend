@@ -39,14 +39,6 @@ router.post('/login', (req, res) => {
 
 })
 
-router.put('/resetpassword', async (req, res) => {
-    try {
-
-    } catch{
-
-    }
-})
-
 function makeToken(user) {
     const payload = {
         username: user.username,
