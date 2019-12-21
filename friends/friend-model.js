@@ -7,6 +7,11 @@ function findFriendScores(filter) {
         .then(use => {
             return db('scores')
                 .where({ userID: use.id })
+                .then(scores => {
+                    use.password = "hidden"
+                    use.scores = scores
+                    return use
+                })
         })
 }
 
