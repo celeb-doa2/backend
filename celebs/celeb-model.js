@@ -33,8 +33,17 @@ function addCeleb(newCeleb) {
         .insert(newCeleb, ['*'])
 }
 
+function editCeleb(newData) {
+    const { id, ...changes } = newData;
+    return db('celebs')
+        .where({ id })
+        .update(changes, ['*'])
+        .then(([updates]) => updates)
+}
+
 module.exports = {
     getCeleb,
     addCeleb,
-    allCelebs
+    allCelebs,
+    editCeleb
 }

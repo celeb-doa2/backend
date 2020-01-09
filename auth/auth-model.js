@@ -12,8 +12,12 @@ function findByID(id) {
 }
 
 function register(user) {
-    return db('users')
-        .insert(user, ['*'])
+    if (user.username) {
+        return db('users')
+            .insert(user, ['*'])
+    } else {
+        return null
+    }
 }
 
 
