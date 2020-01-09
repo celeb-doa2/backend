@@ -10,7 +10,6 @@ function getCeleb() {
                 .where({ id: roundID })
                 .first()
                 .then(cel => {
-                    console.log(cel)
                     if (cel.death > 0) {
                         cel.dead = true
                     } else if (cel.death === 0) {

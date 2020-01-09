@@ -13,7 +13,7 @@ router.post('/register', validationRules(), userCharacters, async (req, res) => 
 
     try {
         const newU = await Auth.register(newUser)
-        res.status(201).json({ Message: "User created", newU })
+        res.status(201).json({ Message: "User created" })
     } catch (err) {
         res.status(404).json({ Message: "User wasn't created", err })
     }
